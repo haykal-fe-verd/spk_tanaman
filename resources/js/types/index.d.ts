@@ -41,3 +41,22 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface Sessions {
+    message?: string;
+    success?: string;
+    error?: string;
+}
+
+export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
+    sessions: Sessions;
+};
+
+export interface Kriteria {
+    id: string;
+    nama: string;
+    tipe_kriteria: 'benefit' | 'cost';
+    jenis_input: 'kategori' | 'numerik';
+    created_at: string;
+    updated_at: string;
+}

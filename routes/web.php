@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AhpController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -13,5 +14,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 });
 
-require __DIR__.'/settings.php';
-require __DIR__.'/auth.php';
+// ahp
+Route::get('ahp', [AhpController::class, 'index'])->name('ahp.index');
+Route::post('ahp', [AhpController::class, 'store'])->name('ahp.store');
+Route::post('/ahp/bobot', [AhpController::class, 'bobotAhp'])->name('ahp.bobot');
+
+
+require __DIR__ . '/settings.php';
+require __DIR__ . '/auth.php';
